@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    active: local
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/batch?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: root
+    maximum-pool-size: 10
+    minimum-idle: 10
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+  batch:
+    jdbc:
+      initialize-schema: NEVER
